@@ -62,4 +62,14 @@ document.addEventListener("submit", async(e) => {
                 .then(data => updateUI(data))
                 .catch(err => console.log(err));
 
+        //Set localSstorage
+        localStorage.setItem("city", cityInput);
+
 });
+
+//Use localstorage if no cityInpzt
+if(localStorage.getItem("city")){
+        weatherData(localStorage.getItem("city"))
+                .then(data => updateUI(data))
+                .catch(err => console.log(err));
+}
